@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="MusicWidget/MusicWidget.csproj" />
+  <Project Path="MusicWidgetSetup/MusicWidgetSetup.vdproj" Type="Installer">
+    <Build />
+  </Project>
+</Solution>
