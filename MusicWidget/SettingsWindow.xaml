@@ -3,12 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="挂件设置" Width="410" SizeToContent="Height"
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
-        ResizeMode="NoResize" ShowInTaskbar="False">
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" 
+        Background="Transparent" ResizeMode="NoResize" ShowInTaskbar="False">
 
     <Grid Margin="16">
-        <Border x:Name="RootBorder" CornerRadius="20" Padding="24,20,24,32">
+        <Border x:Name="RootBorder" CornerRadius="20" Padding="24,20,24,32" ClipToBounds="True">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="20" ShadowDepth="4" Opacity="0.3" Direction="270" Color="Black"/>
             </Border.Effect>
@@ -19,9 +18,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-
-                    <TextBlock x:Name="HeaderTxt" Text="控制面板" Style="{StaticResource MaterialDesignHeadlineMediumTextBlock}" FontWeight="Bold" VerticalAlignment="Center" IsHitTestVisible="False"/>
-
+                    <TextBlock x:Name="HeaderTxt" Text="Setting" Style="{StaticResource MaterialDesignHeadlineMediumTextBlock}" FontWeight="Bold" VerticalAlignment="Center" IsHitTestVisible="False"/>
                     <Button x:Name="BtnClose" Grid.Column="1" Style="{StaticResource MaterialDesignToolButton}" Width="36" Height="36" Padding="0" materialDesign:ButtonAssist.CornerRadius="18" Click="BtnClose_Click">
                         <materialDesign:PackIcon x:Name="CloseIcon" Kind="Close" Width="24" Height="24"/>
                     </Button>
@@ -29,7 +26,6 @@
 
                 <materialDesign:Card x:Name="SettingsCard" UniformCornerRadius="16" materialDesign:ElevationAssist.Elevation="Dp0">
                     <StackPanel Margin="0,8">
-
                         <Grid Margin="16,12">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -67,7 +63,7 @@
                             </Grid.ColumnDefinitions>
                             <materialDesign:PackIcon Kind="Brightness6" Width="24" Height="24" VerticalAlignment="Center" Margin="0,0,16,0" Opacity="0.7"/>
                             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                <TextBlock Text="启用浅色主题(beta)" FontSize="15" FontWeight="Medium"/>
+                                <TextBlock Text="浅色模式" FontSize="15" FontWeight="Medium"/>
                                 <TextBlock Text="切换色彩引擎" FontSize="12" Opacity="0.6" Margin="0,2,0,0"/>
                             </StackPanel>
                             <ToggleButton Grid.Column="2" x:Name="ChkLightMode" Style="{StaticResource MaterialDesignSwitchToggleButton}" Checked="LightMode_Changed" Unchecked="LightMode_Changed"/>
@@ -88,7 +84,6 @@
                             </StackPanel>
                             <ToggleButton Grid.Column="2" x:Name="ChkBgFade" Style="{StaticResource MaterialDesignSwitchToggleButton}" Checked="BgFade_Changed" Unchecked="BgFade_Changed"/>
                         </Grid>
-
                     </StackPanel>
                 </materialDesign:Card>
             </StackPanel>

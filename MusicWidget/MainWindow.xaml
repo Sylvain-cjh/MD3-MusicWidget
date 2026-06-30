@@ -2,30 +2,18 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MusicWidget" 
-        Height="210" Width="480"
-        WindowStyle="None"
-        AllowsTransparency="True"
-        Background="Transparent"
-        ResizeMode="NoResize"
-        Topmost="True"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="MusicWidget" Height="210" Width="480"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        ResizeMode="NoResize" Topmost="True" MouseLeftButtonDown="Window_MouseLeftButtonDown">
 
     <Grid Margin="10">
-        <materialDesign:Card x:Name="MainCard" 
-                             materialDesign:ElevationAssist.Elevation="Dp8"
-                             UniformCornerRadius="24"
-                             Background="Transparent">
+        <materialDesign:Card x:Name="MainCard" materialDesign:ElevationAssist.Elevation="Dp8" UniformCornerRadius="24" Background="Transparent">
 
             <materialDesign:Card.ContextMenu>
-                <ContextMenu Style="{StaticResource MaterialDesignContextMenu}" 
-                             Background="Transparent" BorderThickness="0" HasDropShadow="False" Padding="0">
+                <ContextMenu Style="{StaticResource MaterialDesignContextMenu}" Background="Transparent" BorderThickness="0" HasDropShadow="False" Padding="0">
                     <ContextMenu.Template>
                         <ControlTemplate TargetType="ContextMenu">
-                            <Border Background="{DynamicResource MaterialDesignPaper}"
-                                    CornerRadius="12" Margin="12"
-                                    BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}"
-                                    RenderTransformOrigin="0.2,0.2" Opacity="0">
+                            <Border Background="{DynamicResource MaterialDesignPaper}" CornerRadius="12" Margin="12" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" RenderTransformOrigin="0.2,0.2" Opacity="0">
                                 <Border.RenderTransform>
                                     <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
                                 </Border.RenderTransform>
@@ -61,7 +49,7 @@
                         <MenuItem.Header>
                             <StackPanel Orientation="Horizontal" Margin="4,2">
                                 <materialDesign:PackIcon Kind="SettingsOutline" Width="20" Height="20" VerticalAlignment="Center" Margin="0,0,12,0" Opacity="0.8"/>
-                                <TextBlock Text="Settings" VerticalAlignment="Center" FontSize="14" FontWeight="Medium"/>
+                                <TextBlock Text="挂件设置 (Settings)" VerticalAlignment="Center" FontSize="14" FontWeight="Medium"/>
                             </StackPanel>
                         </MenuItem.Header>
                     </MenuItem>
@@ -70,7 +58,7 @@
                         <MenuItem.Header>
                             <StackPanel Orientation="Horizontal" Margin="4,2">
                                 <materialDesign:PackIcon Kind="ExitToApp" Width="20" Height="20" VerticalAlignment="Center" Margin="0,0,12,0" Foreground="#FFD32F2F"/>
-                                <TextBlock Text="Exit" VerticalAlignment="Center" FontSize="14" Foreground="#FFD32F2F" FontWeight="Bold"/>
+                                <TextBlock Text="退出程序 (Exit)" VerticalAlignment="Center" FontSize="14" Foreground="#FFD32F2F" FontWeight="Bold"/>
                             </StackPanel>
                         </MenuItem.Header>
                     </MenuItem>
@@ -79,8 +67,7 @@
 
             <Border x:Name="CardInnerBorder" CornerRadius="24" ClipToBounds="True" Background="#FF0B2D44">
                 <Grid>
-                    <Image x:Name="BlurBgImage" Stretch="UniformToFill" Margin="-30,-30,0,-30" HorizontalAlignment="Left" Width="360" Opacity="0"
-                           RenderOptions.BitmapScalingMode="HighQuality">
+                    <Image x:Name="BlurBgImage" Stretch="UniformToFill" Margin="-30,-30,0,-30" HorizontalAlignment="Left" Width="360" Opacity="0" RenderOptions.BitmapScalingMode="HighQuality">
                         <Image.CacheMode>
                             <BitmapCache EnableClearType="False" RenderAtScale="1"/>
                         </Image.CacheMode>
@@ -131,12 +118,8 @@
                             </Grid>
 
                             <StackPanel Grid.Column="1" Margin="24,4,0,0" VerticalAlignment="Top">
-                                <TextBlock x:Name="TitleText" Text="未在播放" 
-                                           Style="{StaticResource MaterialDesignHeadlineSmallTextBlock}"
-                                           Foreground="#FFFFFFFF" TextTrimming="CharacterEllipsis" FontWeight="Bold"/>
-                                <TextBlock x:Name="ArtistText" Text="无媒体会话" 
-                                           Style="{StaticResource MaterialDesignBodyMediumTextBlock}" FontSize="15"
-                                           Foreground="#B3FFFFFF" TextWrapping="Wrap" MaxHeight="45" TextTrimming="CharacterEllipsis" Margin="0,4,0,0"/>
+                                <TextBlock x:Name="TitleText" Text="未在播放" Style="{StaticResource MaterialDesignHeadlineSmallTextBlock}" Foreground="#FFFFFFFF" TextTrimming="CharacterEllipsis" FontWeight="Bold"/>
+                                <TextBlock x:Name="ArtistText" Text="无媒体会话" Style="{StaticResource MaterialDesignBodyMediumTextBlock}" FontSize="15" Foreground="#B3FFFFFF" TextWrapping="Wrap" MaxHeight="45" TextTrimming="CharacterEllipsis" Margin="0,4,0,0"/>
                             </StackPanel>
                         </Grid>
 
@@ -212,7 +195,6 @@
                                     </materialDesign:PackIcon>
                                 </Grid>
                             </Grid>
-
                         </StackPanel>
                     </Grid>
                 </Grid>

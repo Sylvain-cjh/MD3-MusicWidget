@@ -1,41 +1,39 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using Application = System.Windows.Application;
+
+using Color = System.Windows.Media.Color;
+using Colors = System.Windows.Media.Colors;
+using Control = System.Windows.Controls.Control;
+using Border = System.Windows.Controls.Border;
+using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace MusicWidget
 {
     public partial class SettingsWindow : Window
     {
         private bool _isLoaded = false;
-
         public SettingsWindow()
         {
             InitializeComponent();
-
             SyncFromConfig();
-
             this.Topmost = AppConfig.Current.IsTopmost;
             ApplyCurrentTheme();
         }
 
         public void SyncFromConfig()
         {
-            _isLoaded = false; 
-
+            _isLoaded = false;
             ChkTopmost.IsChecked = AppConfig.Current.IsTopmost;
             ChkClickThrough.IsChecked = AppConfig.Current.IsClickThrough;
             ChkLightMode.IsChecked = AppConfig.Current.IsLightMode;
             ChkBgFade.IsChecked = AppConfig.Current.EnableBgFade;
-
             _isLoaded = true;
         }
 
-        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ButtonState == MouseButtonState.Pressed) this.DragMove();
-        }
-
+        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) { if (e.ButtonState == MouseButtonState.Pressed) this.DragMove(); }
         private void BtnClose_Click(object sender, RoutedEventArgs e) => this.Close();
 
         public void ApplyCurrentTheme()
@@ -43,10 +41,11 @@ namespace MusicWidget
             if (Application.Current.MainWindow is MainWindow mainWin)
             {
                 var palette = mainWin.CurrentPalette;
-                RootBorder.Background = new SolidColorBrush(palette.Background);
-                HeaderTxt.Foreground = new SolidColorBrush(palette.TextPrimary);
-                CloseIcon.Foreground = new SolidColorBrush(palette.TextPrimary);
-                SettingsCard.Background = new SolidColorBrush(palette.SecondaryContainer);
+
+                RootBorder.AnimateColorTo(Border.BackgroundProperty, palette.Background);
+                SettingsCard.AnimateColorTo(Control.BackgroundProperty, palette.SecondaryContainer);
+                HeaderTxt.AnimateColorTo(TextBlock.ForegroundProperty, palette.TextPrimary);
+                CloseIcon.AnimateColorTo(Control.ForegroundProperty, palette.TextPrimary);
                 SettingsCard.Foreground = new SolidColorBrush(palette.TextPrimary);
             }
         }

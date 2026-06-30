@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Text.Json;
 using MaterialDesignThemes.Wpf;
 
@@ -13,9 +12,7 @@ namespace MusicWidget
         public bool EnableBgFade { get; set; } = true;
 
         public static AppConfig Current { get; set; } = new AppConfig();
-
-        private static readonly string ConfigPath = Path.Combine(AppContext.BaseDirectory, "config.json");
-
+        private static readonly string ConfigPath = Path.Combine(System.AppContext.BaseDirectory, "config.json");
 
         public static void Load()
         {
@@ -40,12 +37,8 @@ namespace MusicWidget
         {
             var paletteHelper = new PaletteHelper();
             var theme = paletteHelper.GetTheme();
-
             theme.SetBaseTheme(Current.IsLightMode ? BaseTheme.Light : BaseTheme.Dark);
-
-            if (primaryColor.HasValue)
-                theme.SetPrimaryColor(primaryColor.Value);
-
+            if (primaryColor.HasValue) theme.SetPrimaryColor(primaryColor.Value);
             paletteHelper.SetTheme(theme);
         }
     }

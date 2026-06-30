@@ -4,6 +4,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Control = System.Windows.Controls.Control;
 using TextBlock = System.Windows.Controls.TextBlock;
+using Border = System.Windows.Controls.Border;
+using Shape = System.Windows.Shapes.Shape;
 
 using Color = System.Windows.Media.Color;
 using Brush = System.Windows.Media.Brush;
@@ -21,6 +23,8 @@ namespace MusicWidget
             if (property == Control.BackgroundProperty) currentBrush = (Brush)element.GetValue(Control.BackgroundProperty);
             else if (property == Control.ForegroundProperty) currentBrush = (Brush)element.GetValue(Control.ForegroundProperty);
             else if (property == TextBlock.ForegroundProperty) currentBrush = (Brush)element.GetValue(TextBlock.ForegroundProperty);
+            else if (property == Border.BorderBrushProperty) currentBrush = (Brush)element.GetValue(Border.BorderBrushProperty);
+            else if (property == Shape.FillProperty) currentBrush = (Brush)element.GetValue(Shape.FillProperty);
 
             if (currentBrush is SolidColorBrush scb) startColor = scb.Color;
             else startColor = targetColor;
