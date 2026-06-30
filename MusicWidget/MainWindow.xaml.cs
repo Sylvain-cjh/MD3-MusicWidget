@@ -75,7 +75,6 @@ namespace MusicWidget
             bool enable = AppConfig.Current.EnableBgFade;
             bool isLight = AppConfig.Current.IsLightMode;
 
-            // 【核心调整】浅色模式大幅提升透明度，防止白底吃掉光效
             if (enable) BlurBgImage.Opacity = isLight ? 0.75 : 0.45;
 
             double targetRadius = enable ? 1.5 : 0.0;
@@ -175,7 +174,6 @@ namespace MusicWidget
                 if (!(TrackInfoContainer.RenderTransform is TranslateTransform)) TrackInfoContainer.RenderTransform = new TranslateTransform();
                 var translate = (TranslateTransform)TrackInfoContainer.RenderTransform;
 
-                // 【核心调整】动态设定目标发散浓度
                 bool isLight = AppConfig.Current.IsLightMode;
                 double targetBlurOpacity = AppConfig.Current.EnableBgFade ? (isLight ? 0.75 : 0.45) : 0.0;
                 double targetMaskRadius = AppConfig.Current.EnableBgFade ? 1.5 : 0.0;
